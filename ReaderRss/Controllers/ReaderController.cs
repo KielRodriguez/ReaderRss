@@ -8,6 +8,9 @@ using System.Web.Mvc;
 
 namespace ReaderRss.Controllers
 {
+    /// <summary>
+    /// Clase controlador 
+    /// </summary>
     public class ReaderController : Controller
     {
         private ReadFeedService service;
