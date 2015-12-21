@@ -1,0 +1,34 @@
+﻿@model ReaderRss.Models.Feed
+
+@{
+    ViewBag.Title = "Lector RSS";
+}
+
+@using (Html.BeginForm("Details", "Reader", FormMethod.Post, new { style="margin-bottom:20px"}))
+{
+    <fieldset>
+        <legend>Lector Rss</legend>
+        Buscar: @Html.TextBoxFor(model => model.Link, new {placeholder="url de canal rss", type= "search" })
+        <input type="submit" value="Buscar" />
+    </fieldset>
+}
+
+<table border="1" style="width:80%;">
+    <tr>
+        <th width="20%" style="text-align:center">Title</th>
+        <th width="60%" style="text-align:center">Url</th>
+        <th width="20%" style="text-align:center">Link</th>
+    </tr>
+    @{
+        foreach (ReaderRss.Models.ItemFeed item in Model.Items)
+        {
+            <tr>
+                <td>@item.Titulo</td>
+                <td>@item.Link</td>
+                <td><a href="@item.Link">ver</a></td>
+            </tr>
+        }
+    }
+
+</table>
+
